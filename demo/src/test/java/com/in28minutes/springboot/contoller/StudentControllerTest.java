@@ -31,7 +31,7 @@ public class StudentControllerTest {
 	@MockBean 
 	private StudentService studentService;
 	
-	//Course mockCourse = new Course("Course1", "Spring" , "10 Step ")
+	//Course mockCourse = new Course("Course1", "Spring" , "10 Step", null);
 	Course mockCourse = new Course("Course1", "Spring", "10 Steps",
 			Arrays.asList("Learn Maven", "Import Project", "First Example",
 					"Second Example"));
@@ -46,19 +46,21 @@ public class StudentControllerTest {
 		RequestBuilder requestBuilder =  MockMvcRequestBuilders.get("/student/Student1/courses/Course1").accept(MediaType.APPLICATION_JSON);
 		
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+		 
 		
-	
+		//String expected = "{id:Course1,name:Spring,description:10 steps}";
 		
-		System.out.println(result.toString());
-		
-		
-		String expected = "{id:Course1,name:Spring,description:10 steps}";
-		
-		// {"id":"Course1","name":"Spring","description":"10 Steps, 25 Examples and 10K Students","steps":["Learn Maven","Import Project","First Example","Second Example"]}
+		//  {"id":"Course1","name":"Spring","description":"10 Steps, 25 Examples and 10K Students","steps":["Learn Maven","Import Project","First Example","Second Example"]}
 
-		JSONAssert.assertEquals(expected, result.getResponse() 
+		JSONAssert.assertEquals(exampleCourseJson, result.getResponse() 
 							.getContentAsString(),false);
 	
+		
+		System.out.println();
+		System.out.println();
+		System.out.println(exampleCourseJson);
+		System.out.println(result.getResponse().getContentAsString());
+		
 	}
 	
 }

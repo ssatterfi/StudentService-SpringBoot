@@ -16,6 +16,14 @@ public class StudentController {
 		@Autowired
 		private StudentService studentservice;
 		
+		
+		@GetMapping("/student/node")
+		public String NodeIsOnline() {
+			
+			return "NodeOnline";
+		}
+		
+		
 		@GetMapping("/student/{studentId}/courses")
 		public List<Course> retrieveCourses(@PathVariable String studentId) {
 			
