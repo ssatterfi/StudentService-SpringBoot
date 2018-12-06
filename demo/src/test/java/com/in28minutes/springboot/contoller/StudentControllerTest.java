@@ -21,7 +21,7 @@ import com.in28minutes.springboot.model.Course;
 import com.in28minutes.springboot.service.StudentService;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(value =  StudentController.class , secure = false)
+@WebMvcTest(value =  StudentController.class)
 public class StudentControllerTest {
 	
 	@Autowired
@@ -56,10 +56,10 @@ public class StudentControllerTest {
 							.getContentAsString(),false);
 	
 		
-		System.out.println();
-		System.out.println();
-		System.out.println(exampleCourseJson);
-		System.out.println(result.getResponse().getContentAsString());
+	//	System.out.println();
+	//	System.out.println();
+	//	System.out.println(exampleCourseJson);
+	//	System.out.println(result.getResponse().getContentAsString());
 		
 	}
 	
